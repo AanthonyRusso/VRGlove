@@ -13,6 +13,8 @@
 #define JOYSTICK_PRESS D2
 #define B_BUTTON D3
 #define A_BUTTON D4
+#define CENTER_X 1907
+#define CENTER_Y 1930
 
 
 #endif

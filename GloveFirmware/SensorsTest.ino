@@ -11,6 +11,7 @@ int bButtonState;
 int xVal;
 int yVal;
 int buttonState;
+const int JOYSTICK_DEADZONE = 50;
 
 void initializeTestPins() {
   pinMode(THUMB_PIN, INPUT);
@@ -57,6 +58,14 @@ void runTests() {
   Serial.println(aButtonState);
   xVal = analogRead(X_PIN);
   yVal = analogRead(Y_PIN);
+  if (abs(xVal - CENTER_X) < JOYSTICK_DEADZONE) {
+    xVal = CENTER_X;
+  }
+
+  if (abs(yVal - CENTER_Y) < JOYSTICK_DEADZONE) {
+    yVal = CENTER_Y;
+  }
+
   buttonState = digitalRead(JOYSTICK_PRESS);
   //joystick testing
   Serial.print("X: ");
